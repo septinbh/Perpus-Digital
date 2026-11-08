@@ -1,0 +1,129 @@
+/* ==========================================================
+   app.css — gaya tambahan di luar utility Tailwind
+   Warna: krem #F5F5DC, emas #FFD700, emas gelap #DAA520
+   ========================================================== */
+body { font-family: 'Poppins', sans-serif; color: #333; }
+[x-cloak], .is-hidden { display: none !important; }
+
+/* Scrollbar emas */
+::-webkit-scrollbar { width: 8px; height: 8px; }
+::-webkit-scrollbar-track { background: #F5F5DC; }
+::-webkit-scrollbar-thumb { background: #FFD700; border-radius: 10px; }
+::-webkit-scrollbar-thumb:hover { background: #DAA520; }
+
+/* ---------- Sidebar ---------- */
+.side-link {
+  display: flex; align-items: center; gap: .85rem;
+  padding: .7rem 1rem; border-radius: .75rem;
+  color: #333; font-size: .925rem; transition: all .2s ease; position: relative;
+}
+.side-link i { width: 20px; text-align: center; color: #7A7A7A; transition: color .2s; }
+.side-link:hover { background: #FFD700; color: #000; transform: translateX(3px); }
+.side-link:hover i { color: #000; }
+.side-link.active { background: #FFD700; color: #000; font-weight: 600; box-shadow: 0 6px 14px rgba(255,215,0,.35); }
+.side-link.active i { color: #000; }
+.side-badge {
+  margin-left: auto; min-width: 1.4rem; height: 1.4rem; padding: 0 .4rem;
+  border-radius: 999px; background: #EF4444; color: #fff; font-size: .7rem; font-weight: 600;
+  display: inline-flex; align-items: center; justify-content: center;
+}
+
+/* ---------- Kartu ---------- */
+.card { background: #fff; border-radius: 18px; border: 1px solid rgba(218,165,32,.25); box-shadow: 0 4px 10px rgba(0,0,0,.05); }
+.card-hover { transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease; }
+.card-hover:hover { transform: translateY(-4px); box-shadow: 0 10px 20px rgba(255,215,0,.25); border-color: #FFD700; }
+.card-hover:hover .card-icon { transform: translateY(-4px) scale(1.1); }
+.card-icon { transition: transform .3s ease; }
+
+/* ---------- Hero dengan gambar ---------- */
+.hero-bg {
+  background-image: linear-gradient(rgba(255,255,255,.15), rgba(255,255,255,.15)), url('../img/background.png');
+  background-size: cover; background-position: center;
+}
+.text-shine {
+  background: linear-gradient(90deg, #DAA520, #FFD700, #DAA520);
+  background-size: 200% auto; -webkit-background-clip: text; background-clip: text;
+  -webkit-text-fill-color: transparent; animation: shine 3s linear infinite;
+}
+@keyframes shine { to { background-position: 200% center; } }
+
+/* ---------- Tabel ---------- */
+.tbl { width: 100%; border-collapse: separate; border-spacing: 0; font-size: .875rem; }
+.tbl thead th {
+  background: rgba(255,215,0,.18); color: #333; font-weight: 600; text-align: left;
+  padding: .8rem 1rem; white-space: nowrap;
+}
+.tbl thead th:first-child { border-top-left-radius: 12px; }
+.tbl thead th:last-child  { border-top-right-radius: 12px; }
+.tbl tbody td { padding: .8rem 1rem; border-bottom: 1px solid rgba(255,215,0,.2); vertical-align: middle; }
+.tbl tbody tr { transition: background .15s; }
+.tbl tbody tr:hover { background: #FFFBEA; }
+
+/* ---------- Form ---------- */
+.input {
+  width: 100%; border: 1px solid #d1d5db; border-radius: .75rem; padding: .65rem .9rem;
+  font-size: .9rem; background: #fff; color: #333; transition: border-color .2s, box-shadow .2s;
+}
+.input:focus { outline: none; border-color: #DAA520; box-shadow: 0 0 0 3px rgba(255,215,0,.3); }
+.label { display: block; font-size: .8rem; font-weight: 600; color: #555; margin-bottom: .35rem; }
+
+/* ---------- Tombol ---------- */
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: .5rem; border-radius: .75rem;
+  padding: .6rem 1.1rem; font-weight: 600; font-size: .875rem; transition: all .2s ease; cursor: pointer; }
+.btn:disabled { opacity: .6; cursor: not-allowed; transform: none !important; }
+.btn-gold { background: #DAA520; color: #fff; }
+.btn-gold:hover { background: #A38029; transform: translateY(-1px); box-shadow: 0 6px 14px rgba(218,165,32,.35); }
+.btn-outline { border: 1px solid #DAA520; color: #A38029; background: #fff; }
+.btn-outline:hover { background: #FFD700; color: #000; border-color: #FFD700; }
+.btn-red { background: #EF4444; color: #fff; }
+.btn-red:hover { background: #dc2626; }
+.btn-green { background: #43B481; color: #fff; }
+.btn-green:hover { background: #369a6d; }
+.btn-ghost { color: #7A7A7A; }
+.btn-ghost:hover { background: #F5F5DC; color: #333; }
+.btn-sm { padding: .4rem .75rem; font-size: .78rem; border-radius: .6rem; }
+
+/* ---------- Modal ---------- */
+.modal { position: fixed; inset: 0; z-index: 60; display: flex; align-items: center; justify-content: center; padding: 1rem;
+  background: rgba(30,25,10,.45); backdrop-filter: blur(3px); opacity: 0; pointer-events: none; transition: opacity .2s; }
+.modal.open { opacity: 1; pointer-events: auto; }
+.modal-box { background: #fff; border-radius: 20px; width: 100%; max-width: 32rem; max-height: 92vh; overflow-y: auto;
+  transform: translateY(20px) scale(.97); transition: transform .25s ease; box-shadow: 0 25px 50px rgba(0,0,0,.25); }
+.modal.open .modal-box { transform: none; }
+
+/* ---------- Toast ---------- */
+#toast-wrap { position: fixed; top: 1rem; right: 1rem; z-index: 80; display: flex; flex-direction: column; gap: .6rem; max-width: 24rem; }
+.toast { display: flex; gap: .75rem; align-items: flex-start; background: #fff; border-radius: 14px; padding: .85rem 1rem;
+  box-shadow: 0 12px 25px rgba(0,0,0,.15); border-left: 5px solid #DAA520; font-size: .875rem;
+  animation: toastIn .35s ease both; }
+.toast.out { animation: toastOut .3s ease forwards; }
+.toast-success { border-color: #43B481; } .toast-success i { color: #43B481; }
+.toast-error   { border-color: #EF4444; } .toast-error i { color: #EF4444; }
+.toast-warning { border-color: #DAA520; } .toast-warning i { color: #DAA520; }
+.toast-info    { border-color: #FFD700; } .toast-info i { color: #DAA520; }
+@keyframes toastIn  { from { opacity: 0; transform: translateX(40px); } to { opacity: 1; transform: none; } }
+@keyframes toastOut { to { opacity: 0; transform: translateX(40px); } }
+
+/* ---------- Kartu buku ---------- */
+.book-cover { aspect-ratio: 3/4; border-radius: 12px; overflow: hidden; position: relative;
+  background: linear-gradient(135deg, #FFF8D6, #F5F5DC); display: flex; align-items: center; justify-content: center; }
+.book-cover img { width: 100%; height: 100%; object-fit: cover; transition: transform .4s ease; }
+.book-card:hover .book-cover img { transform: scale(1.06); }
+.book-ph { text-align: center; padding: 1rem; color: #A38029; }
+
+/* ---------- Animasi masuk ---------- */
+.js .reveal { opacity: 0; transform: translateY(18px); transition: opacity .6s ease, transform .6s ease; }
+.js .reveal.show { opacity: 1; transform: none; }
+
+/* ---------- Spinner tombol ---------- */
+.spin { width: 1rem; height: 1rem; border: 2px solid rgba(255,255,255,.5); border-top-color: #fff; border-radius: 50%; animation: rot .7s linear infinite; }
+@keyframes rot { to { transform: rotate(360deg); } }
+
+/* ---------- Bar chart sederhana ---------- */
+.bar { background: linear-gradient(180deg, #FFD700, #DAA520); border-radius: 8px 8px 4px 4px; transition: height .8s cubic-bezier(.2,.8,.2,1); }
+
+/* ---------- Password strength ---------- */
+.strength { height: 6px; border-radius: 99px; background: #eee; overflow: hidden; }
+.strength > span { display: block; height: 100%; width: 0; transition: width .3s, background .3s; }
+
+@media print { aside, header, .no-print { display: none !important; } main { margin: 0 !important; } }

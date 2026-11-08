@@ -1,0 +1,12 @@
+{
+  "name": "perpus-digital-smkn1kamal",
+  "private": true,
+  "description": "Build Tailwind CSS lokal untuk Perpus Digital",
+  "scripts": {
+    "build": "tailwindcss -c tailwind.config.js -i assets/css/tailwind.input.css -o assets/css/tailwind.css --minify",
+    "watch": "tailwindcss -c tailwind.config.js -i assets/css/tailwind.input.css -o assets/css/tailwind.css --watch"
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.4.17"
+  }
+}

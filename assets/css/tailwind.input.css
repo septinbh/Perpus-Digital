@@ -1,0 +1,4 @@
+/* Sumber Tailwind. Hasil build: assets/css/tailwind.css (jalankan: npm run build) */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
